@@ -1,0 +1,18 @@
+<h2>Edit Student</h2>
+<form method="POST">
+Name: <input name="name" value="<%= student.name %>"><br>
+Email: <input name="email" value="<%= student.email %>"><br>
+Age: <input name="age" value="<%= student.age %>"><br>
+Course:
+<select name="course">
+<option <%= student.course==='BSIT'?'selected':'' %>>BSIT</option>
+<option <%= student.course==='BSCS'?'selected':'' %>>BSCS</option>
+<option <%= student.course==='BSIS'?'selected':'' %>>BSIS</option>
+</select><br>
+<button>Update</button>
+</form>
+
+
+<% errors.forEach(e => { %>
+<p style="color:red"><%= e.msg %></p>
+<% }) %>

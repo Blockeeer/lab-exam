@@ -1,0 +1,19 @@
+<h2>Students</h2>
+<a href="/add">Add Student</a>
+<table border="1">
+<tr>
+<th>Name</th><th>Email</th><th>Age</th><th>Course</th><th>Action</th>
+</tr>
+<% students.forEach(s => { %>
+<tr>
+<td><%= s.name %></td>
+<td><%= s.email %></td>
+<td><%= s.age %></td>
+<td><%= s.course %></td>
+<td>
+<a href="/edit/<%= s._id %>">Edit</a> |
+<a href="/delete/<%= s._id %>">Delete</a>
+</td>
+</tr>
+<% }) %>
+</table>
