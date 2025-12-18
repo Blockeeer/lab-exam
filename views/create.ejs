@@ -1,9 +1,28 @@
+<%- include('layout') %>
+
 <h2>Add Student</h2>
-<% if (error) { %><p class="text-danger"><%= error %></p><% } %>
+
+<% if (error) { %>
+  <p style="color:red;"><%= error %></p>
+<% } %>
+
 <form method="POST" action="/students">
-<input name="name" class="form-control mb-2" placeholder="Name">
-<input name="age" type="number" class="form-control mb-2" placeholder="Age">
-<input name="course" class="form-control mb-2" placeholder="Course">
-<input name="email" class="form-control mb-2" placeholder="Email">
-<button class="btn btn-success">Save</button>
+  <p>
+    Name:<br>
+    <input name="name">
+  </p>
+  <p>
+    Age:<br>
+    <input type="number" name="age">
+  </p>
+  <p>
+    Course:<br>
+    <input name="course">
+  </p>
+  <p>
+    Email:<br>
+    <input name="email">
+  </p>
+  <button type="submit">Save</button>
 </form>
+

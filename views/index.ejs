@@ -1,32 +1,39 @@
+<%- include('layout') %>
+
 <h2>Students</h2>
 
-
-<form class="mb-3">
-<input name="search" value="<%= search %>" placeholder="Search name or course">
-<button class="btn btn-primary btn-sm">Search</button>
+<form method="GET" action="/students">
+  <input name="search" value="<%= search %>" placeholder="Search name or course">
+  <button type="submit">Search</button>
 </form>
 
+<p>
+  <a href="/students/new">Add Student</a>
+</p>
 
-<a href="/students/new" class="btn btn-success mb-2">Add Student</a>
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Course</th>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
 
-
-<table class="table table-bordered">
-<tr>
-<th>Name</th><th>Age</th><th>Course</th><th>Email</th><th>Actions</th>
-</tr>
-<% students.forEach(s => { %>
-<tr>
-<td><%= s.name %></td>
-<td><%= s.age %></td>
-<td><%= s.course %></td>
-<td><%= s.email %></td>
-<td>
-<a href="/students/<%= s._id %>" class="btn btn-info btn-sm">View</a>
-<a href="/students/<%= s._id %>/edit" class="btn btn-warning btn-sm">Edit</a>
-<form action="/students/<%= s._id %>/delete" method="POST" style="display:inline">
-<button class="btn btn-danger btn-sm">Delete</button>
-</form>
-</td>
-</tr>
-<% }) %>
+  <% students.forEach(s => { %>
+    <tr>
+      <td><%= s.name %></td>
+      <td><%= s.age %></td>
+      <td><%= s.course %></td>
+      <td><%= s.email %></td>
+      <td>
+        <a href="/students/<%= s._id %>">View</a>
+        |
+        <a href="/students/<%= s._id %>/edit">Edit</a>
+        |
+        <a href="/students/<%= s._id %>/delete">Delete</a>
+      </td>
+    </tr>
+  <% }) %>
 </table>
+

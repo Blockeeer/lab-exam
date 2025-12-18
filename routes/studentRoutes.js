@@ -10,7 +10,7 @@ router.post('/students', controller.create)
 router.get('/students/:id', controller.show)
 router.get('/students/:id/edit', controller.showEdit)
 router.post('/students/:id', controller.update)
-router.post('/students/:id/delete', controller.delete)
+router.get('/students/:id/delete', controller.delete)
 
 
 module.exports = router
